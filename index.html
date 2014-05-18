@@ -55,6 +55,14 @@
 						<li class="fragment">Composants d'AngularJS</li>
 						<li class="fragment">Création de composants</li>
 					</ul>
+					<aside class="notes">
+						<ol>
+							<li>Pourquoi un autre framework JS ?</li>
+							<li>Comment utiliser AngularJS</li>
+							<li>Comment bien l'utiliser avec les tests</li>
+							<li>Composants inclus et en créer</li>
+						</ol>
+					</aside>
 				</section>
 				<section data-background="#C2ED77">
 					<h1>Jean Detoeuf</h1>
@@ -87,10 +95,25 @@
 						<li class="fragment">Des "bouts" de page peuvent être affichés à la demande : il n'est pas nécessaire de recharger une page à chaque action</li>
 						<li class="fragment">Aucune intelligence réelle côté client</li>
 					</ul>
+					<aside class="notes">
+						<ol>
+							<li>La génération de page est statique et c'est le serveur qui fait tout</li>
+							<li>Arrivée d'ajax boulverse ce schéma</li>
+							<li>On évite au moins de recharger toute la page.  Gain en temps de chargement ressenti</li>
+							<li>Bien mais on sent qu'on peut faire mieux</li>
+						</ol>
+					</aside>
 				</section>
 				<section>
 					<h2>Evolution des interfaces web</h2>
 					<img class="no-shadow" src="img/evolUI.png"/>
+					<aside class="notes">
+						<ol>
+							<li>J'ai présenté les deux premier modèles</li>
+							<li>C'est le troisième modèle qui est utilisé aujourd'hui</li>
+							<li>Le client a plus d'intelligence</li>
+						</ol>
+					</aside>
 				</section>
 				<section>
 					<h2>Pourquoi on n'avait pas fait comme ça avant ?</h2>
@@ -100,7 +123,6 @@
 						<li class="fragment">Les moteurs JavaScript se sont améliorés à partir de 2008 (merci AJAX).</li>
 						<li class="fragment">Même les mobiles peuvent tirer parti de cette amélioration</li>
 					</ul>
-					<aside class="notes">Notes</aside>
 				</section>
 				<section>
 					<img class="no-shadow" src="img/AngularJS-large.png" alt="AngularJS">
@@ -133,6 +155,11 @@
 						<li class="fragment">Validation à implémenter côté client</li>
 						<li class="fragment">Possibilité d'être remplacé un jour par DartJS</li>
 					</ul>
+					<aside class="notes">
+						<ol>
+							<li>La gestion des fichiers est un pb qui concerne tous les FW JS récents</li>
+						</ol>
+					</aside>
 				</section>
 				<section>
 					<h2>Concurrents</h2>
@@ -148,6 +175,11 @@
 				<section>
 					<h2>Pourquoi AngularJS plutôt qu'un autre framework JavaScript ?</h2>
 					<h5>(Moi j'adore le jQuery, ça marche très bien...)</h5>
+					<aside class="notes">
+						<ol>
+							<li>Plutôt que de vous donner la preuve, c'est internet qui va le faire</li>
+						</ol>
+					</aside>
 				</section>
 				<section>
 					<h2>Concurrents</h2>
@@ -157,13 +189,18 @@
 				<section>
 					<h1>Utilisation d'AngularJS</h1>
 					<h2>Bases</h2>
+					<aside class="notes">
+						<ol>
+							<li>Maintenant que vous êtes convaincus, voici les bases</li>
+						</ol>
+					</aside>
 				</section>
 				<section>
 					<h2>Installation</h2>
 					<ul>
 						<li>Aller sur <a href="http://angularjs.org">angularjs.org</a></li>
 						<li class="fragment">Télécharger la dernière version et l'inclure dans sa page web</li>
-						<li class="fragment"><strong>Ou</strong> tiliser le CDN Google pour l'inclure dans sa page web</li>
+						<li class="fragment"><strong>Ou</strong> utiliser le CDN Google pour l'inclure dans sa page web</li>
 					</ul>
 					<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myApp"&gt;
 &lt;head&gt;
@@ -172,6 +209,11 @@
 &lt;body&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+					<aside class="notes">
+						<ol>
+							<li>Installation très simple</li>
+						</ol>
+					</aside>
 					</section>
 					<section>
 						<h2>Evaluations</h2>
@@ -573,6 +615,9 @@ $stateProvider.state('users', { url: "/users", templateUrl: "users.html" })
 		</li>
 		<li>Cette présentation : <a href="https://github.com/thebignet/talk-angularjs-introduction">talk-angularjs-introduction</a></li>
 	</ul>
+</section>
+<section>
+	<h1>Merci !</h1>
 </section>
 </div>
 		</div>
