@@ -1,4 +1,4 @@
-pres-angularjs
+talk-angularjs-introduction
 ==============
 
 Présentation du framework AngularJS en français
