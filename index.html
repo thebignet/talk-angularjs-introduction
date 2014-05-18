@@ -15,6 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/reveal-overrie.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -43,317 +44,518 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
+					<h1>Présentation AngularJS</h1>
+					<h3>Jean Detoeuf</h3>
+					<img class="no-shadow" src="img/opengroupe.gif">
 				</section>
-
 				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
+					<h1>Sommaire</h1>
 					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
+						<li>Introduction et besoin</li>
+						<li>Utilisation basique d'AngularJS</li>
+						<li>Tests unitaires</li>
+						<li>Composants d'AngularJS</li>
+						<li>Création de composants</li>
 					</ul>
 				</section>
-
 				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
+					<h1>Jean Detoeuf</h1>
+					<ul>
+						<li class="fragment">Ingénieur concepteur/développeur</li>
+						<li class="fragment">Passionné de Java, Spring, Web, Javascript</li>
+						<li class="fragment">Plein de choses <strong>hype</strong> comme le growth hacking, nodeJS, la programmation reactive, fonctionnelle, le continuous delivery, sauter dans le vide et les choses qui vont vite</li>
+						<li class="fragment">La bière, le voyages, le roller, courir</li>
+						<li class="fragment">Et les nouvelles technos en général</li>
+					</ul>
 				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  For those of you who like that sort of thing.
-						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+				<section>
+					<h1>Introduction</h1>
+				</section>
+				<section>
+					<h2>Besoin</h2>
+					<ul>
+						<li class="fragment">Fonctionnement standard client/serveur avant 2005 : serveur produit une page, le client en fait le rendu</li>
+						<li class="fragment">2005 : Arrivée d'AJAX</li>
+						<li class="fragment">Des "bouts" de page peuvent être affichés à la demande : il n'est pas nécessaire de recharger une page à chaque action</li>
+						<li class="fragment">Aucune intelligence réelle côté client</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Evolution des interfaces web</h2>
+					<img class="no-shadow" src="img/evolUI.png"/>
+				</section>
+				<section>
+					<h2>Pourquoi on n'avait pas fait comme ça avant ?</h2>
+					<ul>
+						<li class="fragment">JavaScript existe depuis longtemps</li>
+						<li class="fragment">L'évolution de la puissance des terminaux (PC, mobile) permet d'effectuer de placer de l'intelligence côté client.</li>
+						<li class="fragment">Les moteurs JavaScript se sont améliorés à partir de 2008 (merci AJAX).</li>
+						<li class="fragment">Même les mobiles peuvent tirer parti de cette amélioration</li>
+					</ul>
+				</section>
+				<section>
+					<img class="no-shadow" src="img/AngularJS-large.png" alt="AngularJS">
+					<ul>
+						<li class="fragment">Framework JS développé par Google</li>
+						<li class="fragment">Première version 2009</li>
+						<li class="fragment">Fondé sur la programmation déclarative</li>
+						<li class="fragment">Architecture MVC ou plutôt MVVM</li>
+						<li class="fragment">Injection de dépendance</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Points forts</h2>
+					<ul>
+						<li class="fragment">Open Source</li>
+						<li class="fragment">Maintenu par Google</li>
+						<li class="fragment">Injection de dépendance <small>(Je vais être <u>très</u> lourd sur ce point)</small></li>
+						<li class="fragment">Couplage faible entre présentation, données, composants métier</li>
+						<li class="fragment">Tests unitaires et bout en bout</li>
+						<li class="fragment">Compatible REST</li>
+						<li class="fragment">Compatible WebSockets</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Points faibles</h2>
+					<ul>
+						<li class="fragment">Encore en évolution</li>
+						<li class="fragment">Ne fonctionne pas sur IE6, et adaptations à faire pour IE7 et IE8</li>
+						<li class="fragment">La gestion des fichiers peut vite devenir cahotique si on ne la maitrise pas.</li>
+						<li class="fragment">Validation à implémenter côté client</li>
+						<li class="fragment">Possibilité d'être remplacé un jour par DartJS</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Concurrents</h2>
+					<ul>
+						<li class="fragment"><a href="http://backbonejs.org/">Backbone.js</a></li>
+						<li class="fragment"><a href="http://emberjs.com/">Ember.js</a></li>
+						<li class="fragment"><a href="http://knockoutjs.com/">Knockout.js</a></li>
+						<li class="fragment">Plusieurs frameworks qui gèrent le rendu HTML, les feuilles de style, voir même le Back Office</li>
+						<li class="fragment">JQuery n'est pas un concurrent, il est complémentaire</li>
+						<li class="fragment">La force d'AngularJS est de ne pas tout faire, de se concentrer sur le MVVM</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Pourquoi AngularJS plutôt qu'un autre framework JavaScript ?</h2>
+					<h5>(Moi j'adore le jQuery, ça marche très bien...)</h5>
+				</section>
+				<section>
+					<h2>Concurrents</h2>
+					<img class="no-shadow" src="img/googleTrends.png"/>
+					<img class="no-shadow" src="img/googleTrendsLegend.png"/>
+				</section>
+				<section>
+					<h1>Utilisation d'AngularJS</h1>
+					<h2>Bases</h2>
+				</section>
+				<section>
+					<h2>Installation</h2>
+					<ul>
+						<li>Aller sur <a href="http://angularjs.org">angularjs.org</a></li>
+						<li class="fragment">Télécharger la dernière version et l'inclure dans sa page web</li>
+						<li class="fragment"><strong>Ou</strong> tiliser le CDN Google pour l'inclure dans sa page web</li>
+					</ul>
+					<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myApp"&gt;
+&lt;head&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+					</section>
+					<section>
+						<h2>Evaluations</h2>
+						<ul>
+							<li>Une évaluation permet d'afficher une valeur</li>
+							<li class="fragment">Exemple : {{1+1}} affiche 2</li>
+						</ul>
+						<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myApp"&gt;
+&lt;head&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+  var myApp = angular.module('myApp', []);
+  myApp.controller('MyCtrl', function MyCtrl($scope) {});
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body ng-controller="MyCtrl"&gt;
+  Réponse : {{ 7 * 6 }}
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+							<p class="fragment"><a href="demos/demo1/index.html" target="_blank">Démonstration</a></p>
 						</section>
-						```
-					</script>
+						<section>
+							<h2>Controlleur</h2>
+							<ul>
+								<li>Conteneur permettant de gérer des variables</li>
+								<li class="fragment">En JavaScript, des variables peuvent être des fonctions</li>
+								<li class="fragment">Les variables d'un controlleur sont contenue dans son $scope</li>
+								<li class="fragment">Le $scope permet l'étanchéité des variables au sein du controlleur</li>
+							</ul>
+							<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myDemo2"&gt;
+&lt;head&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+  var myApp = angular.module('myDemo2', []);
+  myApp.controller('MyCtrl', function MyCtrl($scope) {
+    $scope.reponse = 42;
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body ng-controller="MyCtrl"&gt;
+  Réponse : {{ reponse }}
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+							<p class="fragment"><a href="demos/demo2/index.html" target="_blank">Démonstration</a></p>
+						</section>
+						<section>
+							<h2>Répéteur</h2>
+							<ul>
+								<li class="fragment">ng-repeat permet d'itérer sur une liste (ie. foreach)</li>
+							</ul>
+							<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myApp"&gt;
+&lt;head&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+  var myApp = angular.module('myApp', []);
+  myApp.controller('MyCtrl', function MyCtrl($scope) {
+    $scope.elems = [0,1,1,2,3,5,8,13];
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body ng-controller="MyCtrl"&gt;
+  {{elems.length}} premiers éléments de la suite de Fibonacci :
+  &lt;ul&gt;&lt;li ng-repeat="elem in elems track by $index"&gt;{{elem}}&lt;/li&gt;&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+							<p class="fragment"><a href="demos/demo3/index.html" target="_blank">Démonstration</a></p>
+						</section>
+						<section>
+							<h2>Filtres 1/3</h2>
+							<ul>
+								<li>Permet de modifier le rendu d'une valeur</li>
+								<li class="fragment">Peut s'appliquer sur des listes</li>
+								<li class="fragment">Exemple de filtres :
+									<ul>
+										<li>filter</li>
+										<li>orderBy</li>
+										<li>limitTo</li>
+										<li>date</li>
+										<li>currency</li>
+										<li>json</li>
+										<li>lowercase</li>
+										<li>uppercase</li>
+										<li>number</li>
+									</ul>
+								</li>
+							</ul>
+						</section>
+						<section>
+							<h2>Filtres 2/3</h2>
+							<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myApp"&gt;
+&lt;head&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+  var myApp = angular.module('myApp', []);
+  myApp.controller('MyCtrl', function MyCtrl($scope) {
+    $scope.technos = ['JavaScript', 'HTML', 'CSS', 'Java'];
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body ng-controller="MyCtrl"&gt;
+  Technologies :
+  &lt;ul&gt;&lt;li ng-repeat="techno in technos"&gt;{{techno}}&lt;/li&gt;&lt;/ul&gt;
+  Technologies Java* :
+  &lt;ul&gt;&lt;li ng-repeat="techno in technos | filter:'Java'"&gt;{{techno}}&lt;/li&gt;&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p class="fragment"><a href="demos/demo4/index.html" target="_blank">Démonstration</a></p>
+						</section>
+						<section>
+							<h2>Filtres 3/3</h2>
+							<ul>
+								<li>Possibilité de créer ses propres filtres</li>
+								<li class="fragment">Permet de factoriser un comportement</li>
+							</ul>
+							<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myApp"&gt;
+&lt;head&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+  angular.module('filters', []).filter('truncate', function () {
+        return function (text,length) {
+          return (text.length<=length)?text:(String(text).substring(0,length)+'...');
+        };
+    });
+  var myApp = angular.module('myApp', ['filters']);
+  myApp.controller('MyCtrl', function MyCtrl($scope) {
+    $scope.blah = 'blah blah blah blah blah blah blah blah blah';
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body ng-controller="MyCtrl"&gt;
+  &lt;table&gt;
+    &lt;tr&gt;&lt;td&gt;Avant filtre&lt;/td&gt;&lt;td&gt;{{blah}}&lt;td/&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Après filtre de taille 18&lt;/td&gt;&lt;td&gt;{{blah|truncate:18}}&lt;td/&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+					<p class="fragment"><a href="demos/demo5/index.html" target="_blank">Démonstration</a></p>
 				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?#/themes">Default</a> -
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> <br>
-						<a href="?theme=moon#/themes">Moon</a> -
-						<a href="?theme=solarized#/themes">Solarized</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
-
 				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<section data-background="#007777">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Repeated Image Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-				</section>
-
-				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
-					<h2>Background Transitions</h2>
-					<p>
-						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
-					</p>
-				</section>
-
-				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
-					<h2>Background Transition Override</h2>
-					<p>
-						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-current-blue">highlight-current-blue</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
-
-				<section>
-					<h2>Stellar Links</h2>
+					<h2>Binding bidirectionnel 1/3</h2>
 					<ul>
-						<li><a href="http://slid.es">Try the online editor</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
+						<li class="fragment">Vue vers Modèle : Certains composants permettent de modifier le modèle à partir de la vue</li>
+						<li class="fragment">Modèle vers Vue : Toute modification du modèle entraine la modification de la vue associée</li>
+						<li class="fragment">AngularJS est assez intelligent pour savoir quels composants de la sont affectés par la modification d'un modèle donné</li>
+						<li class="fragment">Chaque mise à jour de la vue à partir du modèle s'appelle un digest</li>
+						<li class="fragment">AngularJS optimise le digest pour le rendre très perfomant, voir instantané</li>
 					</ul>
 				</section>
-
 				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
+					<h2>Binding bidirectionnel 2/3</h2>
+					<p class="fragment"><img src="img/one-way.png"/></p>
+					<p class="fragment"><img src="img/two-way.png"/></p>
 				</section>
-
-			</div>
+				<section>
+					<h2>Binding bidirectionnel 3/3</h2>
+					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myApp"&gt;
+&lt;head&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+  var myApp = angular.module('myApp', []);
+  myApp.controller('MyCtrl', function MyCtrl($scope) {
+    $scope.nom = 'le monde';
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body ng-controller="MyCtrl"&gt;
+  Bonjour &lt;input ng-model="nom"/&gt;&lt;br/&gt;
+  Comment ça va, {{nom}} ?
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+					<p class="fragment"><a href="demos/demo6/index.html" target="_blank">Démonstration</a></p>
+				</section>
+				<section>
+					<h2>Resources</h2>
+					<ul>
+						<li class="fragment">Angular gère nativement le REST</li>
+						<li class="fragment">Il est possible d'effectuer n'importe quelle requête HTTP</li>
+						<li class="fragment">Définir une <u>vraie</u> resource HTTP avec paramétrage de l'URI (ie. <i>/user/:id</i> ou <i>/post/:name</i>)</li>
+						<li class="fragment"><pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myDemo7"&gt;
+&lt;head&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+var myApp = angular.module('myDemo7', ['ngResource']);
+myApp.factory('AngularJsIssues', function($resource){
+  return $resource('https://api.github.com/repos/angular/angular.js/issues');
+});
+myApp.controller('MyCtrl', function MyCtrl($scope,AngularJsIssues) {
+  $scope.issues = AngularJsIssues.query();
+});
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body ng-controller="MyCtrl"&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Id&lt;/th&gt;
+      &lt;th&gt;State&lt;/th&gt;
+      &lt;th&gt;Title&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr ng-repeat="issue in issues"&gt;
+      &lt;td ng-bind="issue.id"&gt;&lt;/td&gt;
+      &lt;td ng-bind="issue.state"&gt;&lt;/td&gt;
+      &lt;td ng-bind="issue.title"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></li>
+				</ul>
+				<p class="fragment"><a href="demos/demo7/index.html" target="_blank">Démonstration</a></p>
+			</section>
+			<section>
+				<h1>Utilisation d'AngularJS</h1>
+				<h2>Tests</h2>
+			</section>
+			<section>
+				<h2>Introduction</h2>
+				<ul>
+					<li>Quoi ? des tests automatisés en JavaScript ??</li>
+					<li class="fragment">Tests unitaires et tests bout en bout (E2E)</li>
+					<li class="fragment">Lancement des tests avec <img width="150px" class="no-shadow" src="img/karma.png"/></li>
+					<li class="fragment">Les tests peuvent être lancés sur plusieurs navigateurs</li>
+					<li class="fragment">Karma peut aussi faire les tests sur un port (ie. mobile ouvert sur un port d'écoute)</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Exemple</h2>
+				<ul>
+					<li>Unit tests : Test d'un module</li>
+					<li>End-to-end tests : Test de plusieurs modules</li>
+					<li>Les interfaces peuvent être bouchonnées (voir angular.mock.inject)</li>
+					<li>Tous les examples de cette présentation ont leur test</li>
+				</ul>
+				<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">'use strict';
+describe('myDemo1', function(){
+  var curModule;
+  beforeEach(curModule = module('myDemo1'));
+  describe('myDemo1 module', function(){
+    it('should have a module', function() {
+      expect(curModule).not.toBeNull();
+    });
+  });
+  describe('Controller', function(){
+    var scope, ctrl;
+    beforeEach(inject(function($rootScope, $controller) {
+      scope = $rootScope.$new();
+      ctrl = $controller('MyCtrl', {$scope: scope});
+    }));
+    it('should have a controller', function() {
+      expect(ctrl).not.toBeNull();
+    });
+  });
+});</code></pre>
+</section>
+<section>
+	<h1>Utilisation d'AngularJS</h1>
+	<h2>Fonctions avancées</h2>
+</section>
+<section>
+	<h2>Injection de dépendances</h2>
+	<ul>
+		<li>Permet l'inversion de contrôle</li>
+		<li class="fragment">Fonctionne par module</li>
+		<li class="fragment">Un module peut dépendre d'autres modules</li>
+		<li class="fragment">Il est alors possible de faire appel aux méthodes de ces modules</li>
+		<li class="fragment">Permet la séparation de considérations</li>
+		<li class="fragment">Code testable unitairement (un module représente une fonctionnalité et les autres modules peuvent être mockés)</li>
+	</ul>
+</section>
+<section>
+	<h2>Directives 1/2</h2>
+	<ul>
+		<li>Utiliser des nouveaux tags</li>
+		<li class="fragment">Utiliser des nouveaux attributs</li>
+		<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;alert&gt;Alerte !&lt;/alert&gt;
+&lt;datepicker min="minDate" show-weeks="showWeeks"/&gt;
+		</code></pre>
+	</ul>
+</section>
+<section>
+	<h2>Directives 2/2</h2>
+	<ul>
+		<li>Possibilité de créer ses directives</li>
+		<li class="fragment">Comme si on réécrivait du HTML</li>
+		<li class="fragment">Peut être "compilé"</li>
+		<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;twitter-tweet-page/&gt;
+&lt;google-plus-page/&gt;
+&lt;facebook-like-page/&gt;
+&lt;twitter-direct-message user="@thebignet"/&gt;
+&lt;twitter-followers user="@thebignet"/&gt;
+&lt;github-last-commit user="thebignet" project="pres-angularjs"/&gt;
+		</code></pre>
+	</ul>
+</section>
+<section>
+	<h2>router</h2>
+	<ul>
+		<li>Permet de lier à une URI une vue et un controlleur</li>
+		<li class="fragment">/users affiche la vue imbriquée users.html avec le controlleur UserCtrl</li>
+	</ul>
+</section>
+<section>
+	<h2>ui-router</h2>
+	<ul>
+		<li>Meilleur que le routeur intégré à AngularJS</li>
+		<li class="fragment">Permet de gérer des états plutôt que des URI</li>
+		<li class="fragment">Plusieurs vues/controlleurs pour un URI</li>
+		<li class="fragment">Vues imbriquées</li>
+		<li class="fragment">Directive pour une navigation plus simple</li>
+	</ul>
+</section>
+<section>
+	<h2>Vues</h2>
+	<ul>
+		<li>Avec le routeur intégré à AngularJS</li>
+	</ul>
+	<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">myApp.config(['$routeProvider',
+function($routeProvider) {
+  $routeProvider
+    .when('/users', { templateUrl: 'users.html', controller: 'UserCtrl' })
+    .otherwise({ redirectTo: '/' });
+}]);</code></pre>
+	<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;div ng-view&gt;&lt;/div&gt;</code></pre>
+</section>
+<section>
+	<h2>Vues</h2>
+	<ul>
+		<li>Avec ui-router</li>
+	</ul>
+	<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">myApp.config(function($stateProvider, $urlRouterProvider) {
+$urlRouterProvider.otherwise("/");
+$stateProvider.state('users', { url: "/users", templateUrl: "users.html" })
+});</code></pre>
+	<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;div ui-view&gt;&lt;/div&gt;</code></pre>
+</section>
+<section>
+	<h2>Animations</h2>
+	<ul>
+		<li class="fragment">Basé sur des évènements liés à des directives</li>
+		<li class="fragment">Ajout/Suppression d'un élément à une liste</li>
+		<li class="fragment">Modification d'une valeur</li>
+		<li class="fragment">AngularJS applique des classes CSS spécifique avant et pendant l'action</li>
+		<li class="fragment">Toutes les transitions CSS3 sont utilisables</li>
+	</ul>
+</section>
+<section>
+	<h2>jQuery</h2>
+	<ul>
+		<li>Version allégée de jQuery inclue dans AngularJS</li>
+		<li class="fragment">Peut être surchargée par la version complète</li>
+		<li class="fragment">La version alléegée ne contient pas les sélecteur css et <span style="text-decoration:underline">c'est pour votre bien</span> car ce n'est pas la philosophie d'AngularJS</li>
+	</ul>
+</section>
+<section>
+	<h2>Bons amis d'AngularJS</h2>
+	<img width="250px" class="no-shadow" src="img/grunt-logo.png" alt="Grunt">
+	<img width="250px" class="no-shadow" src="img/bower-logo.png" alt="Bower">
+	<img width="250px" class="no-shadow" src="img/yeoman-logo.png" alt="Yeoman">
+</section>
+<section>
+	<h2>Intégration continue</h2>
+	<ul>
+		<li>Les tests peuvent être exécutés sur plusieurs navigateurs à chaque sauvegarde en local ou à chaque commit</li>
+		<li class="fragment">Karma peut être lancé par Jenkins, Sonar, ou Travis</li>
+		<li class="fragment">Les rapports produits sont au format Junit</li>
+	</ul>
+</section>
+<section>
+	<h2>Pour monter un projet rapidement</h2>
+	<ul>
+		<li>Angular-seed</li>
+		<li class="fragment">Framework CSS : Twitter Bootstrap, Foundation</li>
+		<li class="fragment">Utiliser Yeoman avec generator-angular ou generator-jhipster</li>
+	</ul>
+</section>
+<section>
+	<h2>Hébergement</h2>
+	<ul>
+		<li class="fragment">Le serveur peut héberger les resources front et fournir l'API</li>
+		<li class="fragment">Possibilité d'avoir un serveur statique pour le front et une API pour le back</li>
+		<li class="fragment">Plus de flexibilité quant à la charge reposant sur chacun</li>
+		<li class="fragment">Les serveurs frontaux peuvent mettre les resources en cache efficacement</li>
+		<li class="fragment">Les serveurs d'API peuvent être dimensionnés</li>
+		<li class="fragment">Ce découpage se prête plus facilement à un cloud</li>
+	</ul>
+</section>
+<section>
+	<h2>Questions ?</h2>
+	<ul>
+		<li>Twitter : <a href="https://twitter.com/thebignet">@thebignet</a></li>
+		<li>GitHub : <a href="https://github.com/thebignet">https://github.com/thebignet</a></li>
+		<li>Cette présentation : <a href="https://github.com/thebignet/pres-angularjs">https://github.com/thebignet/pres-angularjs</a></li>
+	</ul>
+</section>
+</div>
 
 		</div>
 
@@ -370,7 +572,7 @@ function linkify( selector ) {
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			    theme: 'sky', // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Parallax scrolling
