@@ -1,0 +1,10 @@
+<html ng-app="myDemo3">
+<head>
+  <script src="../../bower_components/angular/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="MyCtrl">
+	{{elems.length}} premiers éléments de la suite de Fibonacci :
+	<ul><li ng-repeat="elem in elems track by $index">{{elem}}</li></ul>
+</body>
+</html>

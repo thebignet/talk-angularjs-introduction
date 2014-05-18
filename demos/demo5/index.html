@@ -1,0 +1,12 @@
+<html ng-app="myDemo5">
+<head>
+  <script src="../../bower_components/angular/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="MyCtrl">
+	<table>
+		<tr><td>Avant filtre</td><td>{{blah}}<td/></tr>
+		<tr><td>Après filtre de taille 18</td><td>{{blah|truncate:18}}<td/></tr>
+	</table>
+</body>
+</html>
