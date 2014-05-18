@@ -1,4 +1,8 @@
-.no-shadow {
+img.no-shadow {
 	border:none !important;
 	box-shadow:none !important;
+}
+
+.reveal section img.inline {
+	margin:0;
 }

@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/reveal-overrie.css">
+		<link rel="stylesheet" href="css/reveal-override.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -550,9 +550,13 @@ $stateProvider.state('users', { url: "/users", templateUrl: "users.html" })
 <section>
 	<h2>Questions ?</h2>
 	<ul>
-		<li>Twitter : <a href="https://twitter.com/thebignet">@thebignet</a></li>
-		<li>GitHub : <a href="https://github.com/thebignet">https://github.com/thebignet</a></li>
-		<li>Cette présentation : <a href="https://github.com/thebignet/pres-angularjs">https://github.com/thebignet/pres-angularjs</a></li>
+		<li><img class="no-shadow inline" src="img/twitter-logo.png" style="height:1em"/> <a href="https://twitter.com/thebignet">@thebignet</a></li>
+		<li>
+			<div>
+				<img class="no-shadow inline" src="img/github-logo.png" style="height:1em"/> <a href="https://github.com/thebignet">thebignet</a>
+			</div>
+		</li>
+		<li>Cette présentation : <a href="https://github.com/thebignet/talk-angularjs-introduction">talk-angularjs-introduction</a></li>
 	</ul>
 </section>
 </div>
@@ -567,10 +571,11 @@ $stateProvider.state('users', { url: "/users", templateUrl: "users.html" })
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: true,
 				history: true,
 				center: true,
+				touch: true,
 
 			    theme: 'sky', // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
