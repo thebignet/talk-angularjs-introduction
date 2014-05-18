@@ -49,14 +49,14 @@
 				<section>
 					<h1>Sommaire</h1>
 					<ul>
-						<li>Introduction et besoin</li>
-						<li>Utilisation basique d'AngularJS</li>
-						<li>Tests unitaires</li>
-						<li>Composants d'AngularJS</li>
-						<li>Création de composants</li>
+						<li class="fragment">Introduction et besoin</li>
+						<li class="fragment">Utilisation basique d'AngularJS</li>
+						<li class="fragment">Tests unitaires</li>
+						<li class="fragment">Composants d'AngularJS</li>
+						<li class="fragment">Création de composants</li>
 					</ul>
 				</section>
-				<section>
+				<section data-background="#C2ED77">
 					<h1>Jean Detoeuf</h1>
 					<ul>
 						<li class="fragment">Ingénieur concepteur/développeur</li>
@@ -100,6 +100,7 @@
 						<li class="fragment">Les moteurs JavaScript se sont améliorés à partir de 2008 (merci AJAX).</li>
 						<li class="fragment">Même les mobiles peuvent tirer parti de cette amélioration</li>
 					</ul>
+					<aside class="notes">Notes</aside>
 				</section>
 				<section>
 					<img class="no-shadow" src="img/AngularJS-large.png" alt="AngularJS">
@@ -389,7 +390,7 @@ myApp.controller('MyCtrl', function MyCtrl($scope,AngularJsIssues) {
 				<ul>
 					<li>Quoi ? des tests automatisés en JavaScript ??</li>
 					<li class="fragment">Tests unitaires et tests bout en bout (E2E)</li>
-					<li class="fragment">Lancement des tests avec <img width="150px" class="no-shadow" src="img/karma.png"/></li>
+					<li class="fragment">Lancement des tests avec <img width="150px" class="no-shadow inline" src="img/karma.png"/></li>
 					<li class="fragment">Les tests peuvent être lancés sur plusieurs navigateurs</li>
 					<li class="fragment">Karma peut aussi faire les tests sur un port (ie. mobile ouvert sur un port d'écoute)</li>
 				</ul>
@@ -443,7 +444,7 @@ describe('myDemo1', function(){
 	<ul>
 		<li>Utiliser des nouveaux tags</li>
 		<li class="fragment">Utiliser des nouveaux attributs</li>
-		<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;alert&gt;Alerte !&lt;/alert&gt;
+		<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px; width: 30em">&lt;alert&gt;Alerte !&lt;/alert&gt;
 &lt;datepicker min="minDate" show-weeks="showWeeks"/&gt;
 		</code></pre>
 	</ul>
@@ -454,7 +455,7 @@ describe('myDemo1', function(){
 		<li>Possibilité de créer ses directives</li>
 		<li class="fragment">Comme si on réécrivait du HTML</li>
 		<li class="fragment">Peut être "compilé"</li>
-		<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;twitter-tweet-page/&gt;
+		<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px; width: 37em;">&lt;twitter-tweet-page/&gt;
 &lt;google-plus-page/&gt;
 &lt;facebook-like-page/&gt;
 &lt;twitter-direct-message user="@thebignet"/&gt;
@@ -508,8 +509,8 @@ $stateProvider.state('users', { url: "/users", templateUrl: "users.html" })
 	<h2>Animations</h2>
 	<ul>
 		<li class="fragment">Basé sur des évènements liés à des directives</li>
-		<li class="fragment">Ajout/Suppression d'un élément à une liste</li>
-		<li class="fragment">Modification d'une valeur</li>
+		<li class="fragment">Suite à l'ajout/suppression d'un élément à une liste</li>
+		<li class="fragment">Suite à la modification d'une valeur</li>
 		<li class="fragment">AngularJS applique des classes CSS spécifique avant et pendant l'action</li>
 		<li class="fragment">Toutes les transitions CSS3 sont utilisables</li>
 	</ul>
@@ -535,6 +536,11 @@ $stateProvider.state('users', { url: "/users", templateUrl: "users.html" })
 		<li class="fragment">Karma peut être lancé par Jenkins, Sonar, ou Travis</li>
 		<li class="fragment">Les rapports produits sont au format Junit</li>
 	</ul>
+	<div class="fragment">
+		<img width="250px" class="no-shadow" src="img/travis-logo.png" alt="Travis">
+		<img width="250px" class="no-shadow" src="img/jenkins-logo.png" alt="Jenkins">
+		<img width="250px" class="no-shadow" src="img/sonar-logo.png" alt="Sonar">
+	</div>
 </section>
 <section>
 	<h2>Pour monter un projet rapidement</h2>
