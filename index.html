@@ -69,18 +69,19 @@
 					<ul>
 						<li class="fragment">Ingénieur concepteur/développeur</li>
 						<li class="fragment">Passionné de Java, Spring, Web, Javascript</li>
-						<li class="fragment">Plein de choses <strong>hype</strong> comme le growth hacking, nodeJS, la programmation reactive, fonctionnelle, le continuous delivery, sauter dans le vide et les choses qui vont vite</li>
-						<li class="fragment">La bière, les voyages, le roller, courir</li>
+						<li class="fragment">Adore plein de choses <strong>hype</strong> comme le growth hacking, nodeJS, la programmation reactive, fonctionnelle, le continuous delivery, sauter dans le vide et les choses qui vont vite</li>
+						<li class="fragment">Aime la bière, les voyages, le roller, courir</li>
 						<li class="fragment">Et les nouvelles technos en général</li>
 					</ul>
 				</section>
 				<section  data-background="#779AED">
 					<h1>Sondage</h1>
+					<h3>Qui</h3>
 					<ul>
 						<li class="fragment">A déjà utilisé JavaScript ?</li>
 						<li class="fragment">A déjà utilisé jQuery ?</li>
 						<li class="fragment">A déjà utilisé un autre framework JavaScript ?</li>
-						<li class="fragment">Déjà entendu parler d'AngularJS ?</li>
+						<li class="fragment">A déjà entendu parler d'AngularJS ?</li>
 						<li class="fragment">A déjà utilisé AngularJS ?</li>
 						<li class="fragment">Est à l'aise avec AngularJS ?</li>
 					</ul>
@@ -93,7 +94,7 @@
 				<section>
 					<h2>Besoin</h2>
 					<ul>
-						<li class="fragment">Fonctionnement standard client/serveur avant 2005 : serveur produit une page, le client en fait le rendu</li>
+						<li class="fragment">Fonctionnement standard client/serveur avant 2005 : le serveur produit une page, le client en fait le rendu</li>
 						<li class="fragment">2005 : Arrivée d'AJAX</li>
 						<li class="fragment">Des "bouts" de page peuvent être affichés à la demande : il n'est pas nécessaire de recharger une page à chaque action</li>
 						<li class="fragment">Aucune intelligence réelle côté client</li>
@@ -152,7 +153,7 @@
 					<ul>
 						<li class="fragment">Open Source</li>
 						<li class="fragment">Maintenu par Google</li>
-						<li class="fragment">Injection de dépendance <small>(Je vais être <u>très</u> lourd sur ce point)</small></li>
+						<li class="fragment">Injection de dépendance</li>
 						<li class="fragment">Couplage faible entre présentation, données, composants métier</li>
 						<li class="fragment">Tests unitaires et bout en bout</li>
 						<li class="fragment">Compatible REST</li>
@@ -251,12 +252,12 @@
 							<p class="fragment"><a href="demos/demo1/index.html" target="_blank">Démonstration</a></p>
 						</section>
 						<section>
-							<h2>Controlleur</h2>
+							<h2>controleur</h2>
 							<ul>
 								<li>Conteneur permettant de gérer des variables</li>
 								<li class="fragment">En JavaScript, des variables peuvent être des fonctions</li>
-								<li class="fragment">Les variables d'un controlleur sont contenue dans son $scope</li>
-								<li class="fragment">Le $scope permet l'étanchéité des variables au sein du controlleur</li>
+								<li class="fragment">Les variables d'un controleur sont contenue dans son $scope</li>
+								<li class="fragment">Le $scope permet l'étanchéité des variables au sein du controleur</li>
 							</ul>
 							<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myDemo2"&gt;
 &lt;head&gt;
@@ -402,11 +403,11 @@
 					<p class="fragment"><a href="demos/demo6/index.html" target="_blank">Démonstration</a></p>
 				</section>
 				<section>
-					<h2>Resources</h2>
+					<h2>Ressources</h2>
 					<ul>
 						<li class="fragment">Angular gère nativement le REST</li>
 						<li class="fragment">Il est possible d'effectuer n'importe quelle requête HTTP</li>
-						<li class="fragment">Définir une <u>vraie</u> resource HTTP avec paramétrage de l'URI (ie. <i>/user/:id</i> ou <i>/post/:name</i>)</li>
+						<li class="fragment">Définir une <u>vraie</u> ressource HTTP avec paramétrage de l'URI (ie. <i>/user/:id</i> ou <i>/post/:name</i>)</li>
 						<li class="fragment"><pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myDemo7"&gt;
 &lt;head&gt;
   &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
@@ -458,7 +459,7 @@ myApp.controller('MyCtrl', function MyCtrl($scope,AngularJsIssues) {
 					<li>Unit tests : Test d'un module</li>
 					<li>End-to-end tests : Test de plusieurs modules</li>
 					<li>Les interfaces peuvent être bouchonnées (voir angular.mock.inject)</li>
-					<li>Tous les examples de cette présentation ont leur test</li>
+					<li>Tous les exemples de cette présentation ont leur test</li>
 				</ul>
 				<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">'use strict';
 describe('myDemo1', function(){
@@ -524,8 +525,8 @@ describe('myDemo1', function(){
 <section>
 	<h2>router</h2>
 	<ul>
-		<li>Permet de lier à une URI une vue et un controlleur</li>
-		<li class="fragment">/users affiche la vue imbriquée users.html avec le controlleur UserCtrl</li>
+		<li>Permet de lier à une URI une vue et un controleur</li>
+		<li class="fragment">/users affiche la vue imbriquée users.html avec le controleur UserCtrl</li>
 	</ul>
 </section>
 <section>
@@ -533,7 +534,7 @@ describe('myDemo1', function(){
 	<ul>
 		<li>Meilleur que le routeur intégré à AngularJS</li>
 		<li class="fragment">Permet de gérer des états plutôt que des URI</li>
-		<li class="fragment">Plusieurs vues/controlleurs pour un URI</li>
+		<li class="fragment">Plusieurs vues/controleurs pour un URI</li>
 		<li class="fragment">Vues imbriquées</li>
 		<li class="fragment">Directive pour une navigation plus simple</li>
 	</ul>
@@ -610,10 +611,10 @@ $stateProvider.state('users', { url: "/users", templateUrl: "users.html" })
 <section>
 	<h2>Hébergement</h2>
 	<ul>
-		<li class="fragment">Le serveur peut héberger les resources front et fournir l'API</li>
+		<li class="fragment">Le serveur peut héberger les ressources front et fournir l'API</li>
 		<li class="fragment">Possibilité d'avoir un serveur statique pour le front et une API pour le back</li>
 		<li class="fragment">Plus de flexibilité quant à la charge reposant sur chacun</li>
-		<li class="fragment">Les serveurs frontaux peuvent mettre les resources en cache efficacement</li>
+		<li class="fragment">Les serveurs frontaux peuvent mettre les ressources en cache efficacement</li>
 		<li class="fragment">Les serveurs d'API peuvent être dimensionnés</li>
 		<li class="fragment">Ce découpage se prête plus facilement à un cloud</li>
 	</ul>
