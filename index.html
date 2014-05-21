@@ -123,7 +123,7 @@
 					<h2>Pourquoi on n'avait pas fait comme ça avant ?</h2>
 					<ul>
 						<li class="fragment">JavaScript existe depuis longtemps</li>
-						<li class="fragment">L'évolution de la puissance des terminaux (PC, mobile) permet d'effectuer de placer de l'intelligence côté client.</li>
+						<li class="fragment">L'évolution de la puissance des terminaux (PC, mobile) permet de placer de l'intelligence côté client.</li>
 						<li class="fragment">Les moteurs JavaScript se sont améliorés à partir de 2008 (merci AJAX).</li>
 						<li class="fragment">Même les mobiles peuvent tirer parti de cette amélioration</li>
 					</ul>
@@ -242,15 +242,34 @@
   &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
   &lt;script type="text/javascript"&gt;
   var myApp = angular.module('myApp', []);
-  myApp.controller('MyCtrl', function MyCtrl($scope) {});
   &lt;/script&gt;
 &lt;/head&gt;
-&lt;body ng-controller="MyCtrl"&gt;
-  Réponse : {{ 7 * 6 }}
+&lt;body&gt;
+	Réponse : {{ 7 * 6 }}
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 							<p class="fragment"><a href="demos/demo1/index.html" target="_blank">Démonstration</a></p>
 						</section>
+                        <section>
+                            <h2>Injection de dépendances 1/2</h2>
+                            <ul>
+                                <li>Permet l'inversion de contrôle</li>
+                                <li class="fragment">Fonctionne par module</li>
+                                <li class="fragment">Un module peut dépendre d'autres modules</li>
+                                <li class="fragment">Il est alors possible de faire appel aux méthodes de ces modules</li>
+                                <li class="fragment">Permet la séparation de considérations</li>
+                                <li class="fragment">Code testable unitairement (un module représente une fonctionnalité et les autres modules peuvent être mockés)</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h2>Injection de dépendances 2/2</h2>
+                            <ul>
+                                <li>L'injection se fait simplement en l'ajoutant à la liste des dépendances du module</li>
+                                <li>Puis le module peut être utilisé en paramètre d'une fonction</li>
+                            </ul>
+                            <pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">angular.module('myApp', ['Clock','Bell']);</code></pre>
+                            <pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">var ringMyBell = function($scope,Clock,Bell){...}</code></pre>
+                        </section>
 						<section>
 							<h2>controleur</h2>
 							<ul>
@@ -259,11 +278,11 @@
 								<li class="fragment">Les variables d'un controleur sont contenue dans son $scope</li>
 								<li class="fragment">Le $scope permet l'étanchéité des variables au sein du controleur</li>
 							</ul>
-							<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myDemo2"&gt;
+							<pre class="fragment"><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myApp"&gt;
 &lt;head&gt;
   &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
   &lt;script type="text/javascript"&gt;
-  var myApp = angular.module('myDemo2', []);
+  var myApp = angular.module('myApp', []);
   myApp.controller('MyCtrl', function MyCtrl($scope) {
     $scope.reponse = 42;
   });
@@ -348,22 +367,21 @@
 &lt;head&gt;
   &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
   &lt;script type="text/javascript"&gt;
-  angular.module('filters', []).filter('truncate', function () {
+    var myApp = angular.module('myApp', []).filter('truncate', function () {
         return function (text,length) {
-          return (text.length<=length)?text:(String(text).substring(0,length)+'...');
+            return (text.length<=length)?text:(String(text).substring(0,length)+'...');
         };
     });
-  var myApp = angular.module('myApp', ['filters']);
-  myApp.controller('MyCtrl', function MyCtrl($scope) {
-    $scope.blah = 'blah blah blah blah blah blah blah blah blah';
-  });
+    myApp.controller('MyCtrl', function MyCtrl($scope) {
+        $scope.blah = 'blah blah blah blah blah blah blah blah blah';
+    });
   &lt;/script&gt;
 &lt;/head&gt;
 &lt;body ng-controller="MyCtrl"&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;Avant filtre&lt;/td&gt;&lt;td&gt;{{blah}}&lt;td/&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Après filtre de taille 18&lt;/td&gt;&lt;td&gt;{{blah|truncate:18}}&lt;td/&gt;&lt;/tr&gt;
-  &lt;/table&gt;
+	&lt;table&gt;
+		&lt;tr&gt;&lt;td&gt;Avant filtre&lt;/td&gt;&lt;td&gt;{{blah}}&lt;td/&gt;&lt;/tr&gt;
+		&lt;tr&gt;&lt;td&gt;Après filtre de taille 18&lt;/td&gt;&lt;td&gt;{{blah|truncate:18}}&lt;td/&gt;&lt;/tr&gt;
+	&lt;/table&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 					<p class="fragment"><a href="demos/demo5/index.html" target="_blank">Démonstration</a></p>
@@ -408,11 +426,11 @@
 						<li class="fragment">Angular gère nativement le REST</li>
 						<li class="fragment">Il est possible d'effectuer n'importe quelle requête HTTP</li>
 						<li class="fragment">Définir une <u>vraie</u> ressource HTTP avec paramétrage de l'URI (ie. <i>/user/:id</i> ou <i>/post/:name</i>)</li>
-						<li class="fragment"><pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myDemo7"&gt;
+						<li class="fragment"><pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;html ng-app="myApp"&gt;
 &lt;head&gt;
   &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"&gt;&lt;/script&gt;
   &lt;script type="text/javascript"&gt;
-var myApp = angular.module('myDemo7', ['ngResource']);
+var myApp = angular.module('myApp', ['ngResource']);
 myApp.factory('AngularJsIssues', function($resource){
   return $resource('https://api.github.com/repos/angular/angular.js/issues');
 });
@@ -462,10 +480,10 @@ myApp.controller('MyCtrl', function MyCtrl($scope,AngularJsIssues) {
 					<li>Tous les exemples de cette présentation ont leur test</li>
 				</ul>
 				<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">'use strict';
-describe('myDemo1', function(){
+describe('myApp', function(){
   var curModule;
-  beforeEach(curModule = module('myDemo1'));
-  describe('myDemo1 module', function(){
+  beforeEach(curModule = module('myApp'));
+  describe('myApp module', function(){
     it('should have a module', function() {
       expect(curModule).not.toBeNull();
     });
@@ -485,17 +503,6 @@ describe('myDemo1', function(){
 <section data-background="img/advanced.jpg">
 	<h1 style="color:white;text-shadow: 0px 0px 9px #777;">Utilisation d'AngularJS</h1>
 	<h2 style="color:white;text-shadow: 0px 0px 9px #777;">Fonctions avancées</h2>
-</section>
-<section>
-	<h2>Injection de dépendances</h2>
-	<ul>
-		<li>Permet l'inversion de contrôle</li>
-		<li class="fragment">Fonctionne par module</li>
-		<li class="fragment">Un module peut dépendre d'autres modules</li>
-		<li class="fragment">Il est alors possible de faire appel aux méthodes de ces modules</li>
-		<li class="fragment">Permet la séparation de considérations</li>
-		<li class="fragment">Code testable unitairement (un module représente une fonctionnalité et les autres modules peuvent être mockés)</li>
-	</ul>
 </section>
 <section>
 	<h2>Directives 1/2</h2>

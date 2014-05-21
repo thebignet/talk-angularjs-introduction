@@ -10,8 +10,7 @@ describe('myDemo5', function(){
 			filter = $filter('truncate');
 		}));
 		it('should have filter dependency', function() {
-			expect(myModule.requires.length).toBe(1);
-			expect(myModule.requires).toContain('myDemo5Filters');
+			expect(myModule.requires.length).toBe(0);
  		});
 		it('should have truncate filter', function() {
 			expect(filter).not.toBeNull();
