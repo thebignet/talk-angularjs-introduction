@@ -2,10 +2,10 @@
   "name": "talk-angularjs-introduction",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "1.2.16",
-    "angular-resource": "1.2.16",
-    "angular-loader": "1.2.16",
-    "angular-scenario": "1.2.16",
-    "angular-mocks": "1.2.16"
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-loader": "latest",
+    "angular-scenario": "latest",
+    "angular-mocks": "latest"
   }
 }

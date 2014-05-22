@@ -11,7 +11,7 @@ Pour lancer la présentation, ouvrez le fichier index.html avec un navigateur mo
 ## Tests ##
 ### Prérequis ###
 [Node](http://nodejs.org/) doit être installé.
-Lancer la commande `npm install` pour installer les dépendances nécessaires.
+Lancer la commande `npm install` pour installer les outils nécessaires. Puis lancer la commande `bower install` pour install les dépendances nécessaires.
 
 ### Lancement ###
 Pour lancer les tests, exécutez la commande `karma start --single-run`.
